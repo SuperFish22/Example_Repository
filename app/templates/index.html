@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Магазин</title>
+  </head>
+  <body>
+    <h1>Каталог</h1>
+    <ul>
+      {% for p in products %}
+      <li>
+        <strong>{{ p.title }}</strong> — {{ p.price_cents }} ₽
+        [<a href="{{ url_for('web.product_page', sku=p.sku) }}">карточка</a>]
+        <a href="{{ url_for('web.checkout') }}?sku={{ p.sku }}">Купить</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
